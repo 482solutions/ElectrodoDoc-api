@@ -27,7 +27,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Woden.Body();
+    instance = new Woden.Body2();
   });
 
   var getProperty = function(object, getter, property) {
@@ -46,22 +46,34 @@
       object[property] = value;
   }
 
-  describe('Body', function() {
-    it('should create an instance of Body', function() {
-      // uncomment below and update the code to test Body
-      //var instane = new Woden.Body();
-      //expect(instance).to.be.a(Woden.Body);
+  describe('Body2', function() {
+    it('should create an instance of Body2', function() {
+      // uncomment below and update the code to test Body2
+      //var instane = new Woden.Body2();
+      //expect(instance).to.be.a(Woden.Body2);
     });
 
-    it('should have the property oldPassword (base name: "oldPassword")', function() {
-      // uncomment below and update the code to test the property oldPassword
-      //var instane = new Woden.Body();
+    it('should have the property login (base name: "login")', function() {
+      // uncomment below and update the code to test the property login
+      //var instane = new Woden.Body2();
       //expect(instance).to.be();
     });
 
-    it('should have the property newPassword (base name: "newPassword")', function() {
-      // uncomment below and update the code to test the property newPassword
-      //var instane = new Woden.Body();
+    it('should have the property password (base name: "password")', function() {
+      // uncomment below and update the code to test the property password
+      //var instane = new Woden.Body2();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property certificate (base name: "certificate")', function() {
+      // uncomment below and update the code to test the property certificate
+      //var instane = new Woden.Body2();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property privateKey (base name: "privateKey")', function() {
+      // uncomment below and update the code to test the property privateKey
+      //var instane = new Woden.Body2();
       //expect(instance).to.be();
     });
 
