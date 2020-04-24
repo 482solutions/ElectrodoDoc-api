@@ -37,7 +37,7 @@
    */
 
   /**
-   * Constructs a new UserApi. 
+   * Constructs a new UserApi.
    * @alias module:api/UserApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -58,7 +58,7 @@
     /**
      * Update user password
      * Changing user credentials
-     * @param {module:model/Body} body 
+     * @param {module:model/Body} body
      * @param {module:api/UserApi~changeUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.changeUser = function(body, callback) {
@@ -81,7 +81,7 @@
       var formParams = {
       };
 
-      var authNames = ['ApiKeyAuth'];
+      var authNames = ['oAuth2'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = null;
@@ -104,9 +104,9 @@
     /**
      * Create user
      * After registration user receive Certificate for Fabric CA
-     * @param {String} login 
-     * @param {String} email 
-     * @param {String} password 
+     * @param {String} login
+     * @param {String} email
+     * @param {String} password
      * @param {File} CSR The CSR to upload.
      * @param {module:api/UserApi~createUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -172,8 +172,8 @@
     /**
      * Login user into the system
      * Authentification for users to get in to the system and receive JWT token
-     * @param {String} login 
-     * @param {String} password 
+     * @param {String} login
+     * @param {String} password
      * @param {File} certificate The certificate to upload.
      * @param {File} privateKey The private key to upload.
      * @param {module:api/UserApi~loginCallback} callback The callback function, accepting three arguments: error, data, response

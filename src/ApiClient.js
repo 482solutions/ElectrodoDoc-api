@@ -55,7 +55,7 @@
      * @type {Array.<String>}
      */
     this.authentications = {
-      'ApiKeyAuth': {type: 'apiKey', 'in': 'header', name: 'JWT Token'}
+      'oAuth2': {type: 'oauth2'}
     };
     /**
      * The default HTTP headers to be included for all API calls.
@@ -501,8 +501,8 @@
    */
   exports.parseDate = function(str) {
     // OpenAPI 2.0 & 3.0 specs state that:
-    // - date values are serialized as ISO-8601 full-date strings. 
-    // - date-time values are serialized as ISO-8601 date-time strings, in which the timezone offset is mandatory. 
+    // - date values are serialized as ISO-8601 full-date strings.
+    // - date-time values are serialized as ISO-8601 date-time strings, in which the timezone offset is mandatory.
     return new Date(str);
   };
 
