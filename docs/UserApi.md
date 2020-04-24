@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**login**](UserApi.md#login) | **POST** /user/auth | Login user into the system
 [**logout**](UserApi.md#logout) | **DELETE** /user/logout | Logout user from the system
 
-
 <a name="changeUser"></a>
 # **changeUser**
 > changeUser(body)
@@ -20,28 +19,20 @@ Changing user credentials
 
 ### Example
 ```javascript
-var Woden = require('woden');
-var defaultClient = Woden.ApiClient.instance;
-
-// Configure API key authorization: ApiKeyAuth
-var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
-
-var apiInstance = new Woden.UserApi();
-
-var body = new Woden.Body(); // Body | 
+import Woden from 'woden';
+let defaultClient = Woden.ApiClient.instance;
 
 
-var callback = function(error, data, response) {
+let apiInstance = new Woden.UserApi();
+let body = new Woden.Body(); // Body | 
+
+apiInstance.changeUser(body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.changeUser(body, callback);
+});
 ```
 
 ### Parameters
@@ -56,16 +47,16 @@ null (empty response body)
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Content-Type**: */*
+ - **Accept**: Not defined
 
 <a name="createUser"></a>
 # **createUser**
-> createUser(login, email, password, CSR)
+> createUser(loginemailpasswordCSR)
 
 Create user
 
@@ -73,27 +64,21 @@ After registration user receive Certificate for Fabric CA
 
 ### Example
 ```javascript
-var Woden = require('woden');
+import Woden from 'woden';
 
-var apiInstance = new Woden.UserApi();
+let apiInstance = new Woden.UserApi();
+let login = "login_example"; // String | 
+let email = "email_example"; // String | 
+let password = "password_example"; // String | 
+let CSR = CSR_example; // Blob | 
 
-var login = "login_example"; // String | 
-
-var email = "email_example"; // String | 
-
-var password = "password_example"; // String | 
-
-var CSR = "/path/to/file.txt"; // File | The CSR to upload.
-
-
-var callback = function(error, data, response) {
+apiInstance.createUser(loginemailpasswordCSR, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.createUser(login, email, password, CSR, callback);
+});
 ```
 
 ### Parameters
@@ -103,7 +88,7 @@ Name | Type | Description  | Notes
  **login** | **String**|  | 
  **email** | **String**|  | 
  **password** | **String**|  | 
- **CSR** | **File**| The CSR to upload. | 
+ **CSR** | **Blob**|  | 
 
 ### Return type
 
@@ -116,39 +101,33 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 <a name="login"></a>
 # **login**
-> login(login, password, certificate, privateKey)
+> login(loginpasswordcertificateprivateKey)
 
 Login user into the system
 
-Authentification for users to get in to the system and receive JWT token
+Authentication for users to get in to the system and receive JWT token
 
 ### Example
 ```javascript
-var Woden = require('woden');
+import Woden from 'woden';
 
-var apiInstance = new Woden.UserApi();
+let apiInstance = new Woden.UserApi();
+let login = "login_example"; // String | 
+let password = "password_example"; // String | 
+let certificate = certificate_example; // Blob | 
+let privateKey = privateKey_example; // Blob | 
 
-var login = "login_example"; // String | 
-
-var password = "password_example"; // String | 
-
-var certificate = "/path/to/file.txt"; // File | The certificate to upload.
-
-var privateKey = "/path/to/file.txt"; // File | The private key to upload.
-
-
-var callback = function(error, data, response) {
+apiInstance.login(loginpasswordcertificateprivateKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.login(login, password, certificate, privateKey, callback);
+});
 ```
 
 ### Parameters
@@ -157,8 +136,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **login** | **String**|  | 
  **password** | **String**|  | 
- **certificate** | **File**| The certificate to upload. | 
- **privateKey** | **File**| The private key to upload. | 
+ **certificate** | **Blob**|  | 
+ **privateKey** | **Blob**|  | 
 
 ### Return type
 
@@ -171,7 +150,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 <a name="logout"></a>
 # **logout**
@@ -183,25 +162,18 @@ Manualy exit from the system
 
 ### Example
 ```javascript
-var Woden = require('woden');
-var defaultClient = Woden.ApiClient.instance;
+import Woden from 'woden';
+let defaultClient = Woden.ApiClient.instance;
 
-// Configure API key authorization: ApiKeyAuth
-var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
 
-var apiInstance = new Woden.UserApi();
-
-var callback = function(error, data, response) {
+let apiInstance = new Woden.UserApi();
+apiInstance.logout((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.logout(callback);
+});
 ```
 
 ### Parameters
@@ -213,10 +185,10 @@ null (empty response body)
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
