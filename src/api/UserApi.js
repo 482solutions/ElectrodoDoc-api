@@ -257,7 +257,7 @@
       var formParams = {
       };
 
-      var authNames = ['ApiKeyAuth'];
+      var authNames = ['oAuth2'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = null;
