@@ -107,7 +107,7 @@
      * @param {String} login
      * @param {String} email
      * @param {String} password
-     * @param {File} CSR The CSR to upload.
+     * @param {String} CSR The CSR to upload.
      * @param {module:api/UserApi~createUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.createUser = function(login, email, password, CSR, callback) {
@@ -171,11 +171,11 @@
 
     /**
      * Login user into the system
-     * Authentification for users to get in to the system and receive JWT token
+     * Authentication for users to get in to the system and receive JWT token
      * @param {String} login
      * @param {String} password
-     * @param {File} certificate The certificate to upload.
-     * @param {File} privateKey The private key to upload.
+     * @param {String} certificate The certificate to upload.
+     * @param {String} privateKey The private key to upload.
      * @param {module:api/UserApi~loginCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.login = function(login, password, certificate, privateKey, callback) {

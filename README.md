@@ -97,11 +97,11 @@ var Woden = require('woden');
 
 var defaultClient = Woden.ApiClient.instance;
 
-// Configure API key authorization: ApiKeyAuth
-var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = "YOUR API KEY"
+// Configure API key authorization: Bearer
+var Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix['JWT Token'] = "Token"
+//Bearer.apiKeyPrefix['Authorization'] = "Token"
 
 var api = new Woden.UserApi()
 
@@ -139,9 +139,9 @@ Class | Method | HTTP request | Description
 ## Documentation for Authorization
 
 
-### ApiKeyAuth
+### Bearer
 
 - **Type**: API key
-- **API key parameter name**: JWT Token
+- **API key parameter name**: Authorization
 - **Location**: HTTP header
 

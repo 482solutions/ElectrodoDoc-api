@@ -55,7 +55,7 @@
      * @type {Array.<String>}
      */
     this.authentications = {
-      'oAuth2': {type: 'oauth2'}
+      'Bearer': {type: 'apiKey', 'in': 'header', name: 'Authorization'}
     };
     /**
      * The default HTTP headers to be included for all API calls.
@@ -295,7 +295,6 @@
     var _this = this;
     authNames.forEach(function(authName) {
       var auth = _this.authentications[authName];
-      console.log(auth);
       switch (auth.type) {
         case 'basic':
           if (auth.username || auth.password) {
@@ -378,8 +377,8 @@
    * @returns {Object} The SuperAgent request object.
    */
   exports.prototype.callApi = function callApi(path, httpMethod, pathParams,
-                                               queryParams, collectionQueryParams, headerParams, formParams, bodyParam, authNames, contentTypes, accepts,
-                                               returnType, callback) {
+      queryParams, collectionQueryParams, headerParams, formParams, bodyParam, authNames, contentTypes, accepts,
+      returnType, callback) {
 
     var _this = this;
     var url = this.buildUrl(path, pathParams);
@@ -387,6 +386,7 @@
 
     // apply authentications
     this.applyAuthToRequest(request, authNames);
+
     // set collection query parameters
     for (var key in collectionQueryParams) {
       if (collectionQueryParams.hasOwnProperty(key)) {
@@ -408,7 +408,7 @@
 
     // set query parameters
     if (httpMethod.toUpperCase() === 'GET' && this.cache === false) {
-      queryParams['_'] = new Date().getTime();
+        queryParams['_'] = new Date().getTime();
     }
     request.query(this.normalizeParams(queryParams));
 
@@ -531,7 +531,7 @@
       case 'Date':
         return this.parseDate(String(data));
       case 'Blob':
-        return data;
+      	return data;
       default:
         if (type === Object) {
           // generic object, return directly

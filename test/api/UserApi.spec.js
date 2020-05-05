@@ -63,7 +63,7 @@
           var login = "login_example";
           var email = "email_example";
           var password = "password_example";
-          var CSR = "/path/to/file.txt";
+          var CSR = "CSR_example";
 
           instance.createUser(login, email, password, CSR, function(error, data, response) {
             if (error) {
@@ -84,8 +84,8 @@
           /*
           var login = "login_example";
           var password = "password_example";
-          var certificate = "/path/to/file.txt";
-          var privateKey = "/path/to/file.txt";
+          var certificate = "certificate_example";
+          var privateKey = "privateKey_example";
 
           instance.login(login, password, certificate, privateKey, function(error, data, response) {
             if (error) {
