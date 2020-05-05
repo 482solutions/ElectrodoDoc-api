@@ -23,11 +23,11 @@ Changing user credentials
 var Woden = require('woden');
 var defaultClient = Woden.ApiClient.instance;
 
-// Configure API key authorization: ApiKeyAuth
-var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
+// Configure API key authorization: Bearer
+var Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
+//Bearer.apiKeyPrefix = 'Token';
 
 var apiInstance = new Woden.UserApi();
 
@@ -56,7 +56,7 @@ null (empty response body)
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -83,7 +83,7 @@ var email = "email_example"; // String |
 
 var password = "password_example"; // String | 
 
-var CSR = "/path/to/file.txt"; // File | The CSR to upload.
+var CSR = "CSR_example"; // String | The CSR to upload.
 
 
 var callback = function(error, data, response) {
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
  **login** | **String**|  | 
  **email** | **String**|  | 
  **password** | **String**|  | 
- **CSR** | **File**| The CSR to upload. | 
+ **CSR** | **String**| The CSR to upload. | 
 
 ### Return type
 
@@ -124,7 +124,7 @@ No authorization required
 
 Login user into the system
 
-Authentification for users to get in to the system and receive JWT token
+Authentication for users to get in to the system and receive JWT token
 
 ### Example
 ```javascript
@@ -136,9 +136,9 @@ var login = "login_example"; // String |
 
 var password = "password_example"; // String | 
 
-var certificate = "/path/to/file.txt"; // File | The certificate to upload.
+var certificate = "certificate_example"; // String | The certificate to upload.
 
-var privateKey = "/path/to/file.txt"; // File | The private key to upload.
+var privateKey = "privateKey_example"; // String | The private key to upload.
 
 
 var callback = function(error, data, response) {
@@ -157,8 +157,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **login** | **String**|  | 
  **password** | **String**|  | 
- **certificate** | **File**| The certificate to upload. | 
- **privateKey** | **File**| The private key to upload. | 
+ **certificate** | **String**| The certificate to upload. | 
+ **privateKey** | **String**| The private key to upload. | 
 
 ### Return type
 
@@ -186,11 +186,11 @@ Manualy exit from the system
 var Woden = require('woden');
 var defaultClient = Woden.ApiClient.instance;
 
-// Configure API key authorization: ApiKeyAuth
-var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
+// Configure API key authorization: Bearer
+var Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
+//Bearer.apiKeyPrefix = 'Token';
 
 var apiInstance = new Woden.UserApi();
 
@@ -213,7 +213,7 @@ null (empty response body)
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
