@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Body', 'api/UserApi'], factory);
+    define(['ApiClient', 'model/Body', 'model/Body1', 'model/Body2', 'model/Body3', 'api/FileSystemApi', 'api/UserApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Body'), require('./api/UserApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Body'), require('./model/Body1'), require('./model/Body2'), require('./model/Body3'), require('./api/FileSystemApi'), require('./api/UserApi'));
   }
-}(function(ApiClient, Body, UserApi) {
+}(function(ApiClient, Body, Body1, Body2, Body3, FileSystemApi, UserApi) {
   'use strict';
 
   /**
@@ -66,6 +66,26 @@
      * @property {module:model/Body}
      */
     Body: Body,
+    /**
+     * The Body1 model constructor.
+     * @property {module:model/Body1}
+     */
+    Body1: Body1,
+    /**
+     * The Body2 model constructor.
+     * @property {module:model/Body2}
+     */
+    Body2: Body2,
+    /**
+     * The Body3 model constructor.
+     * @property {module:model/Body3}
+     */
+    Body3: Body3,
+    /**
+     * The FileSystemApi service constructor.
+     * @property {module:api/FileSystemApi}
+     */
+    FileSystemApi: FileSystemApi,
     /**
      * The UserApi service constructor.
      * @property {module:api/UserApi}
