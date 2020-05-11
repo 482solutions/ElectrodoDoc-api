@@ -36,14 +36,7 @@
    * @version 1.0.0
    */
 
-  /**
-   * Constructs a new UserApi.
-   * @alias module:api/UserApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
+  return function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
 
@@ -70,16 +63,11 @@
       }
 
 
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var pathParams = {};
+      var queryParams = {};
+      var collectionQueryParams = {};
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['oAuth2'];
       var contentTypes = [];
@@ -134,14 +122,10 @@
       }
 
 
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
+      var pathParams = {};
+      var queryParams = {};
+      var collectionQueryParams = {};
+      var headerParams = {};
       var formParams = {
         'login': login,
         'email': email,
@@ -202,14 +186,10 @@
       }
 
 
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
+      var pathParams = {};
+      var queryParams = {};
+      var collectionQueryParams = {};
+      var headerParams = {};
       var formParams = {
         'login': login,
         'password': password,
@@ -246,16 +226,11 @@
       var postBody = null;
 
 
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var pathParams = {};
+      var queryParams = {};
+      var collectionQueryParams = {};
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['oAuth2'];
       var contentTypes = [];
@@ -269,6 +244,4 @@
       );
     }
   };
-
-  return exports;
 }));

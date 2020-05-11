@@ -103,9 +103,9 @@ Bearer.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Bearer.apiKeyPrefix['Authorization'] = "Token"
 
-var api = new Woden.UserApi()
+var api = new Woden.FileSystemApi()
 
-var body = new Woden.Body(); // {Body} 
+var body = new Woden.Body2(); // {Body2} 
 
 
 var callback = function(error, data, response) {
@@ -115,7 +115,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.changeUser(body, callback);
+api.createFolder(body, callback);
 
 ```
 
@@ -125,6 +125,10 @@ All URIs are relative to *https://localhost/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*Woden.FileSystemApi* | [**createFolder**](docs/FileSystemApi.md#createFolder) | **POST** /folder | Create folder
+*Woden.FileSystemApi* | [**downloadFile**](docs/FileSystemApi.md#downloadFile) | **GET** /file | Download file
+*Woden.FileSystemApi* | [**getFolder**](docs/FileSystemApi.md#getFolder) | **GET** /folder | Get folder
+*Woden.FileSystemApi* | [**uploadFile**](docs/FileSystemApi.md#uploadFile) | **POST** /file | Upload file
 *Woden.UserApi* | [**changeUser**](docs/UserApi.md#changeUser) | **PUT** /user | Update user password
 *Woden.UserApi* | [**createUser**](docs/UserApi.md#createUser) | **POST** /user | Create user
 *Woden.UserApi* | [**login**](docs/UserApi.md#login) | **POST** /user/auth | Login user into the system
@@ -134,6 +138,9 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Woden.Body](docs/Body.md)
+ - [Woden.Body1](docs/Body1.md)
+ - [Woden.Body2](docs/Body2.md)
+ - [Woden.Body3](docs/Body3.md)
 
 
 ## Documentation for Authorization
