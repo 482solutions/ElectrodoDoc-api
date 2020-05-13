@@ -5,8 +5,9 @@ All URIs are relative to *https://localhost/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createFolder**](FileSystemApi.md#createFolder) | **POST** /folder | Create folder
-[**downloadFile**](FileSystemApi.md#downloadFile) | **GET** /file | Download file
-[**getFolder**](FileSystemApi.md#getFolder) | **GET** /folder | Get folder
+[**downloadFile**](FileSystemApi.md#downloadFile) | **GET** /file/{hash} | Download file
+[**getFolder**](FileSystemApi.md#getFolder) | **GET** /folder/{hash} | Get folder
+[**search**](FileSystemApi.md#search) | **GET** /search/{name} | Search
 [**uploadFile**](FileSystemApi.md#uploadFile) | **POST** /file | Upload file
 
 
@@ -31,7 +32,7 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new Woden.FileSystemApi();
 
-var body = new Woden.Body2(); // Body2 | 
+var body = new Woden.CreateFolder(); // CreateFolder | 
 
 
 var callback = function(error, data, response) {
@@ -48,7 +49,7 @@ apiInstance.createFolder(body, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body2**](Body2.md)|  | 
+ **body** | [**CreateFolder**](CreateFolder.md)|  | 
 
 ### Return type
 
@@ -65,7 +66,7 @@ null (empty response body)
 
 <a name="downloadFile"></a>
 # **downloadFile**
-> downloadFile(body)
+> downloadFile(hash)
 
 Download file
 
@@ -84,7 +85,7 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new Woden.FileSystemApi();
 
-var body = new Woden.Body3(); // Body3 | 
+var hash = "hash_example"; // String | The file hash
 
 
 var callback = function(error, data, response) {
@@ -94,14 +95,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.downloadFile(body, callback);
+apiInstance.downloadFile(hash, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body3**](Body3.md)|  | 
+ **hash** | **String**| The file hash | 
 
 ### Return type
 
@@ -114,11 +115,11 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 <a name="getFolder"></a>
 # **getFolder**
-> getFolder(body)
+> getFolder(hash)
 
 Get folder
 
@@ -137,7 +138,7 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new Woden.FileSystemApi();
 
-var body = new Woden.Body1(); // Body1 | 
+var hash = "hash_example"; // String | The folder hash
 
 
 var callback = function(error, data, response) {
@@ -147,14 +148,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.getFolder(body, callback);
+apiInstance.getFolder(hash, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body1**](Body1.md)|  | 
+ **hash** | **String**| The folder hash | 
 
 ### Return type
 
@@ -167,11 +168,64 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
+
+<a name="search"></a>
+# **search**
+> search(name)
+
+Search
+
+Search folders and files means that user will receive folder or file if exist
+
+### Example
+```javascript
+var Woden = require('woden');
+var defaultClient = Woden.ApiClient.instance;
+
+// Configure API key authorization: Bearer
+var Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+var apiInstance = new Woden.FileSystemApi();
+
+var name = "name_example"; // String | The folder or file name
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+apiInstance.search(name, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| The folder or file name | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a name="uploadFile"></a>
 # **uploadFile**
-> uploadFile(name, parentFolder, file)
+> uploadFile(body)
 
 Upload file
 
@@ -190,11 +244,7 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new Woden.FileSystemApi();
 
-var name = "name_example"; // String | 
-
-var parentFolder = "parentFolder_example"; // String | 
-
-var file = "/path/to/file.txt"; // File | The file to upload.
+var body = new Woden.UploadFile(); // UploadFile | 
 
 
 var callback = function(error, data, response) {
@@ -204,16 +254,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.uploadFile(name, parentFolder, file, callback);
+apiInstance.uploadFile(body, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**|  | 
- **parentFolder** | **String**|  | 
- **file** | **File**| The file to upload. | 
+ **body** | [**UploadFile**](UploadFile.md)|  | 
 
 ### Return type
 
@@ -225,6 +273,6 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 

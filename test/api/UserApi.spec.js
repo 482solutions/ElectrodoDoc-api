@@ -39,7 +39,7 @@
         it('should call changeUser successfully', function(done) {
           // TODO: uncomment, update parameter values for changeUser call
           /*
-          var body = new Woden.Body();
+          var body = new Woden.ChangePassword();
           body.oldPassword = "";
           body.newPassword = "";
 
@@ -60,12 +60,13 @@
         it('should call createUser successfully', function(done) {
           // TODO: uncomment, update parameter values for createUser call
           /*
-          var login = "login_example";
-          var email = "email_example";
-          var password = "password_example";
-          var CSR = "CSR_example";
+          var body = new Woden.CreateUser();
+          body.login = "";
+          body.email = "";
+          body.password = "";
+          body.CSR = "";
 
-          instance.createUser(login, email, password, CSR, function(error, data, response) {
+          instance.createUser(body, function(error, data, response) {
             if (error) {
               done(error);
               return;
@@ -82,12 +83,13 @@
         it('should call login successfully', function(done) {
           // TODO: uncomment, update parameter values for login call
           /*
-          var login = "login_example";
-          var password = "password_example";
-          var certificate = "certificate_example";
-          var privateKey = "privateKey_example";
+          var body = new Woden.Login();
+          body.login = "";
+          body.password = "";
+          body.certificate = "";
+          body.privateKey = "";
 
-          instance.login(login, password, certificate, privateKey, function(error, data, response) {
+          instance.login(body, function(error, data, response) {
             if (error) {
               done(error);
               return;

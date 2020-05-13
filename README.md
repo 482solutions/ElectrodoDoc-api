@@ -105,7 +105,7 @@ Bearer.apiKey = "YOUR API KEY"
 
 var api = new Woden.FileSystemApi()
 
-var body = new Woden.Body2(); // {Body2} 
+var body = new Woden.CreateFolder(); // {CreateFolder} 
 
 
 var callback = function(error, data, response) {
@@ -126,8 +126,9 @@ All URIs are relative to *https://localhost/api/v1*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *Woden.FileSystemApi* | [**createFolder**](docs/FileSystemApi.md#createFolder) | **POST** /folder | Create folder
-*Woden.FileSystemApi* | [**downloadFile**](docs/FileSystemApi.md#downloadFile) | **GET** /file | Download file
-*Woden.FileSystemApi* | [**getFolder**](docs/FileSystemApi.md#getFolder) | **GET** /folder | Get folder
+*Woden.FileSystemApi* | [**downloadFile**](docs/FileSystemApi.md#downloadFile) | **GET** /file/{hash} | Download file
+*Woden.FileSystemApi* | [**getFolder**](docs/FileSystemApi.md#getFolder) | **GET** /folder/{hash} | Get folder
+*Woden.FileSystemApi* | [**search**](docs/FileSystemApi.md#search) | **GET** /search/{name} | Search
 *Woden.FileSystemApi* | [**uploadFile**](docs/FileSystemApi.md#uploadFile) | **POST** /file | Upload file
 *Woden.UserApi* | [**changeUser**](docs/UserApi.md#changeUser) | **PUT** /user | Update user password
 *Woden.UserApi* | [**createUser**](docs/UserApi.md#createUser) | **POST** /user | Create user
@@ -137,10 +138,11 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [Woden.Body](docs/Body.md)
- - [Woden.Body1](docs/Body1.md)
- - [Woden.Body2](docs/Body2.md)
- - [Woden.Body3](docs/Body3.md)
+ - [Woden.ChangePassword](docs/ChangePassword.md)
+ - [Woden.CreateFolder](docs/CreateFolder.md)
+ - [Woden.CreateUser](docs/CreateUser.md)
+ - [Woden.Login](docs/Login.md)
+ - [Woden.UploadFile](docs/UploadFile.md)
 
 
 ## Documentation for Authorization

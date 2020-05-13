@@ -39,7 +39,7 @@
         it('should call createFolder successfully', function(done) {
           // TODO: uncomment, update parameter values for createFolder call
           /*
-          var body = new Woden.Body2();
+          var body = new Woden.CreateFolder();
           body.name = "";
           body.parentFolder = "";
 
@@ -60,10 +60,9 @@
         it('should call downloadFile successfully', function(done) {
           // TODO: uncomment, update parameter values for downloadFile call
           /*
-          var body = new Woden.Body3();
-          body.hash = "";
+          var hash = "hash_example";
 
-          instance.downloadFile(body, function(error, data, response) {
+          instance.downloadFile(hash, function(error, data, response) {
             if (error) {
               done(error);
               return;
@@ -80,10 +79,28 @@
         it('should call getFolder successfully', function(done) {
           // TODO: uncomment, update parameter values for getFolder call
           /*
-          var body = new Woden.Body1();
-          body.hash = "";
+          var hash = "hash_example";
 
-          instance.getFolder(body, function(error, data, response) {
+          instance.getFolder(hash, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('search', function() {
+        it('should call search successfully', function(done) {
+          // TODO: uncomment, update parameter values for search call
+          /*
+          var name = "name_example";
+
+          instance.search(name, function(error, data, response) {
             if (error) {
               done(error);
               return;
@@ -100,11 +117,12 @@
         it('should call uploadFile successfully', function(done) {
           // TODO: uncomment, update parameter values for uploadFile call
           /*
-          var name = "name_example";
-          var parentFolder = "parentFolder_example";
-          var file = "/path/to/file.txt";
+          var body = new Woden.UploadFile();
+          body.name = "";
+          body.parentFolder = "";
+          body.file = ;
 
-          instance.uploadFile(name, parentFolder, file, function(error, data, response) {
+          instance.uploadFile(body, function(error, data, response) {
             if (error) {
               done(error);
               return;
