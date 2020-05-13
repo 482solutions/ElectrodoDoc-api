@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Body1', 'model/Body2', 'model/Body3'], factory);
+    define(['ApiClient', 'model/CreateFolder', 'model/UploadFile'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Body1'), require('../model/Body2'), require('../model/Body3'));
+    module.exports = factory(require('../ApiClient'), require('../model/CreateFolder'), require('../model/UploadFile'));
   } else {
     // Browser globals (root is window)
     if (!root.Woden) {
       root.Woden = {};
     }
-    root.Woden.FileSystemApi = factory(root.Woden.ApiClient, root.Woden.Body1, root.Woden.Body2, root.Woden.Body3);
+    root.Woden.FileSystemApi = factory(root.Woden.ApiClient, root.Woden.CreateFolder, root.Woden.UploadFile);
   }
-}(this, function(ApiClient, Body1, Body2, Body3) {
+}(this, function(ApiClient, CreateFolder, UploadFile) {
   'use strict';
 
   /**
@@ -58,7 +58,7 @@
     /**
      * Create folder
      * Creating folder by user
-     * @param {module:model/Body2} body 
+     * @param {module:model/CreateFolder} body 
      * @param {module:api/FileSystemApi~createFolderCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.createFolder = function(body, callback) {
@@ -104,19 +104,20 @@
     /**
      * Download file
      * Downloading file from current folder
-     * @param {module:model/Body3} body 
+     * @param {String} hash The file hash
      * @param {module:api/FileSystemApi~downloadFileCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.downloadFile = function(body, callback) {
-      var postBody = body;
+    this.downloadFile = function(hash, callback) {
+      var postBody = null;
 
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling downloadFile");
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling downloadFile");
       }
 
 
       var pathParams = {
+        'hash': hash
       };
       var queryParams = {
       };
@@ -129,11 +130,11 @@
 
       var authNames = ['Bearer'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = [];
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/file', 'GET',
+        '/file/{hash}', 'GET',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -150,19 +151,20 @@
     /**
      * Get folder
      * Geting folder means that user will receive the contents of the folder (files and folders)
-     * @param {module:model/Body1} body 
+     * @param {String} hash The folder hash
      * @param {module:api/FileSystemApi~getFolderCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.getFolder = function(body, callback) {
-      var postBody = body;
+    this.getFolder = function(hash, callback) {
+      var postBody = null;
 
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling getFolder");
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling getFolder");
       }
 
 
       var pathParams = {
+        'hash': hash
       };
       var queryParams = {
       };
@@ -175,11 +177,58 @@
 
       var authNames = ['Bearer'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = [];
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/folder', 'GET',
+        '/folder/{hash}', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the search operation.
+     * @callback module:api/FileSystemApi~searchCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Search
+     * Search folders and files means that user will receive folder or file if exist
+     * @param {String} name The folder or file name
+     * @param {module:api/FileSystemApi~searchCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.search = function(name, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling search");
+      }
+
+
+      var pathParams = {
+        'name': name
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Bearer'];
+      var contentTypes = [];
+      var accepts = [];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/search/{name}', 'GET',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -196,27 +245,15 @@
     /**
      * Upload file
      * Uploading file in current folder
-     * @param {String} name 
-     * @param {String} parentFolder 
-     * @param {File} file The file to upload.
+     * @param {module:model/UploadFile} body 
      * @param {module:api/FileSystemApi~uploadFileCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.uploadFile = function(name, parentFolder, file, callback) {
-      var postBody = null;
+    this.uploadFile = function(body, callback) {
+      var postBody = body;
 
-      // verify the required parameter 'name' is set
-      if (name === undefined || name === null) {
-        throw new Error("Missing the required parameter 'name' when calling uploadFile");
-      }
-
-      // verify the required parameter 'parentFolder' is set
-      if (parentFolder === undefined || parentFolder === null) {
-        throw new Error("Missing the required parameter 'parentFolder' when calling uploadFile");
-      }
-
-      // verify the required parameter 'file' is set
-      if (file === undefined || file === null) {
-        throw new Error("Missing the required parameter 'file' when calling uploadFile");
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling uploadFile");
       }
 
 
@@ -229,13 +266,10 @@
       var headerParams = {
       };
       var formParams = {
-        'name': name,
-        'parentFolder': parentFolder,
-        'file': file
       };
 
       var authNames = ['Bearer'];
-      var contentTypes = ['multipart/form-data'];
+      var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = null;
 

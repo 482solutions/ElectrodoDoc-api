@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Body', 'model/Body1', 'model/Body2', 'model/Body3', 'api/FileSystemApi', 'api/UserApi'], factory);
+    define(['ApiClient', 'model/ChangePassword', 'model/CreateFolder', 'model/CreateUser', 'model/Login', 'model/UploadFile', 'api/FileSystemApi', 'api/UserApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Body'), require('./model/Body1'), require('./model/Body2'), require('./model/Body3'), require('./api/FileSystemApi'), require('./api/UserApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/ChangePassword'), require('./model/CreateFolder'), require('./model/CreateUser'), require('./model/Login'), require('./model/UploadFile'), require('./api/FileSystemApi'), require('./api/UserApi'));
   }
-}(function(ApiClient, Body, Body1, Body2, Body3, FileSystemApi, UserApi) {
+}(function(ApiClient, ChangePassword, CreateFolder, CreateUser, Login, UploadFile, FileSystemApi, UserApi) {
   'use strict';
 
   /**
@@ -62,25 +62,30 @@
      */
     ApiClient: ApiClient,
     /**
-     * The Body model constructor.
-     * @property {module:model/Body}
+     * The ChangePassword model constructor.
+     * @property {module:model/ChangePassword}
      */
-    Body: Body,
+    ChangePassword: ChangePassword,
     /**
-     * The Body1 model constructor.
-     * @property {module:model/Body1}
+     * The CreateFolder model constructor.
+     * @property {module:model/CreateFolder}
      */
-    Body1: Body1,
+    CreateFolder: CreateFolder,
     /**
-     * The Body2 model constructor.
-     * @property {module:model/Body2}
+     * The CreateUser model constructor.
+     * @property {module:model/CreateUser}
      */
-    Body2: Body2,
+    CreateUser: CreateUser,
     /**
-     * The Body3 model constructor.
-     * @property {module:model/Body3}
+     * The Login model constructor.
+     * @property {module:model/Login}
      */
-    Body3: Body3,
+    Login: Login,
+    /**
+     * The UploadFile model constructor.
+     * @property {module:model/UploadFile}
+     */
+    UploadFile: UploadFile,
     /**
      * The FileSystemApi service constructor.
      * @property {module:api/FileSystemApi}

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Body'], factory);
+    define(['ApiClient', 'model/ChangePassword', 'model/CreateUser', 'model/Login'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Body'));
+    module.exports = factory(require('../ApiClient'), require('../model/ChangePassword'), require('../model/CreateUser'), require('../model/Login'));
   } else {
     // Browser globals (root is window)
     if (!root.Woden) {
       root.Woden = {};
     }
-    root.Woden.UserApi = factory(root.Woden.ApiClient, root.Woden.Body);
+    root.Woden.UserApi = factory(root.Woden.ApiClient, root.Woden.ChangePassword, root.Woden.CreateUser, root.Woden.Login);
   }
-}(this, function(ApiClient, Body) {
+}(this, function(ApiClient, ChangePassword, CreateUser, Login) {
   'use strict';
 
   /**
@@ -36,7 +36,14 @@
    * @version 1.0.0
    */
 
-  return function(apiClient) {
+  /**
+   * Constructs a new UserApi. 
+   * @alias module:api/UserApi
+   * @class
+   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+   * default to {@link module:ApiClient#instance} if unspecified.
+   */
+  var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
 
@@ -51,7 +58,7 @@
     /**
      * Update user password
      * Changing user credentials
-     * @param {module:model/Body} body
+     * @param {module:model/ChangePassword} body 
      * @param {module:api/UserApi~changeUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.changeUser = function(body, callback) {
@@ -63,13 +70,18 @@
       }
 
 
-      var pathParams = {};
-      var queryParams = {};
-      var collectionQueryParams = {};
-      var headerParams = {};
-      var formParams = {};
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
 
-      var authNames = ['oAuth2'];
+      var authNames = ['Bearer'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = null;
@@ -92,49 +104,31 @@
     /**
      * Create user
      * After registration user receive Certificate for Fabric CA
-     * @param {String} login
-     * @param {String} email
-     * @param {String} password
-     * @param {String} CSR The CSR to upload.
+     * @param {module:model/CreateUser} body 
      * @param {module:api/UserApi~createUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.createUser = function(login, email, password, CSR, callback) {
-      var postBody = null;
+    this.createUser = function(body, callback) {
+      var postBody = body;
 
-      // verify the required parameter 'login' is set
-      if (login === undefined || login === null) {
-        throw new Error("Missing the required parameter 'login' when calling createUser");
-      }
-
-      // verify the required parameter 'email' is set
-      if (email === undefined || email === null) {
-        throw new Error("Missing the required parameter 'email' when calling createUser");
-      }
-
-      // verify the required parameter 'password' is set
-      if (password === undefined || password === null) {
-        throw new Error("Missing the required parameter 'password' when calling createUser");
-      }
-
-      // verify the required parameter 'CSR' is set
-      if (CSR === undefined || CSR === null) {
-        throw new Error("Missing the required parameter 'CSR' when calling createUser");
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling createUser");
       }
 
 
-      var pathParams = {};
-      var queryParams = {};
-      var collectionQueryParams = {};
-      var headerParams = {};
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
       var formParams = {
-        'login': login,
-        'email': email,
-        'password': password,
-        'CSR': CSR
       };
 
       var authNames = [];
-      var contentTypes = ['multipart/form-data'];
+      var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = null;
 
@@ -156,49 +150,31 @@
     /**
      * Login user into the system
      * Authentication for users to get in to the system and receive JWT token
-     * @param {String} login
-     * @param {String} password
-     * @param {String} certificate The certificate to upload.
-     * @param {String} privateKey The private key to upload.
+     * @param {module:model/Login} body 
      * @param {module:api/UserApi~loginCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.login = function(login, password, certificate, privateKey, callback) {
-      var postBody = null;
+    this.login = function(body, callback) {
+      var postBody = body;
 
-      // verify the required parameter 'login' is set
-      if (login === undefined || login === null) {
-        throw new Error("Missing the required parameter 'login' when calling login");
-      }
-
-      // verify the required parameter 'password' is set
-      if (password === undefined || password === null) {
-        throw new Error("Missing the required parameter 'password' when calling login");
-      }
-
-      // verify the required parameter 'certificate' is set
-      if (certificate === undefined || certificate === null) {
-        throw new Error("Missing the required parameter 'certificate' when calling login");
-      }
-
-      // verify the required parameter 'privateKey' is set
-      if (privateKey === undefined || privateKey === null) {
-        throw new Error("Missing the required parameter 'privateKey' when calling login");
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling login");
       }
 
 
-      var pathParams = {};
-      var queryParams = {};
-      var collectionQueryParams = {};
-      var headerParams = {};
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
       var formParams = {
-        'login': login,
-        'password': password,
-        'certificate': certificate,
-        'privateKey': privateKey
       };
 
       var authNames = [];
-      var contentTypes = ['multipart/form-data'];
+      var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = null;
 
@@ -226,13 +202,18 @@
       var postBody = null;
 
 
-      var pathParams = {};
-      var queryParams = {};
-      var collectionQueryParams = {};
-      var headerParams = {};
-      var formParams = {};
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
 
-      var authNames = ['oAuth2'];
+      var authNames = ['Bearer'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = null;
@@ -244,4 +225,6 @@
       );
     }
   };
+
+  return exports;
 }));

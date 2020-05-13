@@ -31,7 +31,7 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new Woden.UserApi();
 
-var body = new Woden.Body(); // Body | 
+var body = new Woden.ChangePassword(); // ChangePassword | 
 
 
 var callback = function(error, data, response) {
@@ -48,7 +48,7 @@ apiInstance.changeUser(body, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body**](Body.md)|  | 
+ **body** | [**ChangePassword**](ChangePassword.md)|  | 
 
 ### Return type
 
@@ -65,7 +65,7 @@ null (empty response body)
 
 <a name="createUser"></a>
 # **createUser**
-> createUser(login, email, password, CSR)
+> createUser(body)
 
 Create user
 
@@ -77,13 +77,7 @@ var Woden = require('woden');
 
 var apiInstance = new Woden.UserApi();
 
-var login = "login_example"; // String | 
-
-var email = "email_example"; // String | 
-
-var password = "password_example"; // String | 
-
-var CSR = "CSR_example"; // String | The CSR to upload.
+var body = new Woden.CreateUser(); // CreateUser | 
 
 
 var callback = function(error, data, response) {
@@ -93,17 +87,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.createUser(login, email, password, CSR, callback);
+apiInstance.createUser(body, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **login** | **String**|  | 
- **email** | **String**|  | 
- **password** | **String**|  | 
- **CSR** | **String**| The CSR to upload. | 
+ **body** | [**CreateUser**](CreateUser.md)|  | 
 
 ### Return type
 
@@ -115,12 +106,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="login"></a>
 # **login**
-> login(login, password, certificate, privateKey)
+> login(body)
 
 Login user into the system
 
@@ -132,13 +123,7 @@ var Woden = require('woden');
 
 var apiInstance = new Woden.UserApi();
 
-var login = "login_example"; // String | 
-
-var password = "password_example"; // String | 
-
-var certificate = "certificate_example"; // String | The certificate to upload.
-
-var privateKey = "privateKey_example"; // String | The private key to upload.
+var body = new Woden.Login(); // Login | 
 
 
 var callback = function(error, data, response) {
@@ -148,17 +133,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.login(login, password, certificate, privateKey, callback);
+apiInstance.login(body, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **login** | **String**|  | 
- **password** | **String**|  | 
- **certificate** | **String**| The certificate to upload. | 
- **privateKey** | **String**| The private key to upload. | 
+ **body** | [**Login**](Login.md)|  | 
 
 ### Return type
 
@@ -170,7 +152,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="logout"></a>
