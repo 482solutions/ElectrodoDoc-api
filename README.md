@@ -121,7 +121,7 @@ api.createFolder(body, callback);
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://localhost/api/v1*
+All URIs are relative to *http://localhost:8080/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -142,7 +142,6 @@ Class | Method | HTTP request | Description
  - [Woden.CreateFolder](docs/CreateFolder.md)
  - [Woden.CreateUser](docs/CreateUser.md)
  - [Woden.Login](docs/Login.md)
- - [Woden.UploadFile](docs/UploadFile.md)
 
 
 ## Documentation for Authorization

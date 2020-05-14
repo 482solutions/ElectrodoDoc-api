@@ -1,6 +1,6 @@
 # Woden.FileSystemApi
 
-All URIs are relative to *https://localhost/api/v1*
+All URIs are relative to *http://localhost:8080/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -225,7 +225,7 @@ null (empty response body)
 
 <a name="uploadFile"></a>
 # **uploadFile**
-> uploadFile(body)
+> uploadFile(name, parentFolder, file)
 
 Upload file
 
@@ -244,7 +244,11 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new Woden.FileSystemApi();
 
-var body = new Woden.UploadFile(); // UploadFile | 
+var name = "name_example"; // String | 
+
+var parentFolder = "parentFolder_example"; // String | 
+
+var file = "/path/to/file.txt"; // File | File to upload.
 
 
 var callback = function(error, data, response) {
@@ -254,14 +258,16 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.uploadFile(body, callback);
+apiInstance.uploadFile(name, parentFolder, file, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UploadFile**](UploadFile.md)|  | 
+ **name** | **String**|  | 
+ **parentFolder** | **String**|  | 
+ **file** | **File**| File to upload. | 
 
 ### Return type
 
@@ -273,6 +279,6 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 

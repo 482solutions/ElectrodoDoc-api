@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ChangePassword', 'model/CreateFolder', 'model/CreateUser', 'model/Login', 'model/UploadFile', 'api/FileSystemApi', 'api/UserApi'], factory);
+    define(['ApiClient', 'model/ChangePassword', 'model/CreateFolder', 'model/CreateUser', 'model/Login', 'api/FileSystemApi', 'api/UserApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/ChangePassword'), require('./model/CreateFolder'), require('./model/CreateUser'), require('./model/Login'), require('./model/UploadFile'), require('./api/FileSystemApi'), require('./api/UserApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/ChangePassword'), require('./model/CreateFolder'), require('./model/CreateUser'), require('./model/Login'), require('./api/FileSystemApi'), require('./api/UserApi'));
   }
-}(function(ApiClient, ChangePassword, CreateFolder, CreateUser, Login, UploadFile, FileSystemApi, UserApi) {
+}(function(ApiClient, ChangePassword, CreateFolder, CreateUser, Login, FileSystemApi, UserApi) {
   'use strict';
 
   /**
@@ -81,11 +81,6 @@
      * @property {module:model/Login}
      */
     Login: Login,
-    /**
-     * The UploadFile model constructor.
-     * @property {module:model/UploadFile}
-     */
-    UploadFile: UploadFile,
     /**
      * The FileSystemApi service constructor.
      * @property {module:api/FileSystemApi}
