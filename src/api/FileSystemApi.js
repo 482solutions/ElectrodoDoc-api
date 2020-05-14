@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CreateFolder', 'model/UploadFile'], factory);
+    define(['ApiClient', 'model/CreateFolder'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CreateFolder'), require('../model/UploadFile'));
+    module.exports = factory(require('../ApiClient'), require('../model/CreateFolder'));
   } else {
     // Browser globals (root is window)
     if (!root.Woden) {
       root.Woden = {};
     }
-    root.Woden.FileSystemApi = factory(root.Woden.ApiClient, root.Woden.CreateFolder, root.Woden.UploadFile);
+    root.Woden.FileSystemApi = factory(root.Woden.ApiClient, root.Woden.CreateFolder);
   }
-}(this, function(ApiClient, CreateFolder, UploadFile) {
+}(this, function(ApiClient, CreateFolder) {
   'use strict';
 
   /**
@@ -245,15 +245,27 @@
     /**
      * Upload file
      * Uploading file in current folder
-     * @param {module:model/UploadFile} body 
+     * @param {String} name 
+     * @param {String} parentFolder 
+     * @param {File} file File to upload.
      * @param {module:api/FileSystemApi~uploadFileCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.uploadFile = function(body, callback) {
-      var postBody = body;
+    this.uploadFile = function(name, parentFolder, file, callback) {
+      var postBody = null;
 
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling uploadFile");
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling uploadFile");
+      }
+
+      // verify the required parameter 'parentFolder' is set
+      if (parentFolder === undefined || parentFolder === null) {
+        throw new Error("Missing the required parameter 'parentFolder' when calling uploadFile");
+      }
+
+      // verify the required parameter 'file' is set
+      if (file === undefined || file === null) {
+        throw new Error("Missing the required parameter 'file' when calling uploadFile");
       }
 
 
@@ -266,10 +278,13 @@
       var headerParams = {
       };
       var formParams = {
+        'name': name,
+        'parentFolder': parentFolder,
+        'file': file
       };
 
       var authNames = ['Bearer'];
-      var contentTypes = [];
+      var contentTypes = ['multipart/form-data'];
       var accepts = ['application/json'];
       var returnType = null;
 

@@ -117,12 +117,11 @@
         it('should call uploadFile successfully', function(done) {
           // TODO: uncomment, update parameter values for uploadFile call
           /*
-          var body = new Woden.UploadFile();
-          body.name = "";
-          body.parentFolder = "";
-          body.file = ;
+          var name = "name_example";
+          var parentFolder = "parentFolder_example";
+          var file = "/path/to/file.txt";
 
-          instance.uploadFile(body, function(error, data, response) {
+          instance.uploadFile(name, parentFolder, file, function(error, data, response) {
             if (error) {
               done(error);
               return;
