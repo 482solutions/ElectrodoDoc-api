@@ -129,7 +129,9 @@ Class | Method | HTTP request | Description
 *Woden.FileSystemApi* | [**downloadFile**](docs/FileSystemApi.md#downloadFile) | **GET** /file/{hash} | Download file
 *Woden.FileSystemApi* | [**getFolder**](docs/FileSystemApi.md#getFolder) | **GET** /folder/{hash} | Get folder
 *Woden.FileSystemApi* | [**search**](docs/FileSystemApi.md#search) | **GET** /search/{name} | Search
+*Woden.FileSystemApi* | [**updateFile**](docs/FileSystemApi.md#updateFile) | **PUT** /file | Update file
 *Woden.FileSystemApi* | [**uploadFile**](docs/FileSystemApi.md#uploadFile) | **POST** /file | Upload file
+*Woden.FileSystemApi* | [**versions**](docs/FileSystemApi.md#versions) | **GET** /versions/{hash} | Versions of file
 *Woden.UserApi* | [**changeUser**](docs/UserApi.md#changeUser) | **PUT** /user | Update user password
 *Woden.UserApi* | [**createUser**](docs/UserApi.md#createUser) | **POST** /user | Create user
 *Woden.UserApi* | [**login**](docs/UserApi.md#login) | **POST** /user/auth | Login user into the system
