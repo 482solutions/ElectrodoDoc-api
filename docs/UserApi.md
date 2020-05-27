@@ -161,7 +161,7 @@ No authorization required
 
 Logout user from the system
 
-Manualy exit from the system
+Manually exit from the system
 
 ### Example
 ```javascript
