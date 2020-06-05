@@ -60,6 +60,8 @@
         obj.email = ApiClient.convertToType(data['email'], 'String');
       if (data.hasOwnProperty('password'))
         obj.password = ApiClient.convertToType(data['password'], 'String');
+      if (data.hasOwnProperty('privateKey'))
+        obj.privateKey = ApiClient.convertToType(data['privateKey'], 'String');
       if (data.hasOwnProperty('CSR'))
         obj.CSR = ApiClient.convertToType(data['CSR'], 'String');
     }
@@ -80,6 +82,11 @@
    * @member {String} password
    */
   exports.prototype.password = undefined;
+
+  /**
+   * @member {String} privateKey
+   */
+  exports.prototype.privateKey = undefined;
 
   /**
    * @member {String} CSR

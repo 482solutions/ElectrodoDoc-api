@@ -64,6 +64,7 @@
           body.login = "";
           body.email = "";
           body.password = "";
+          body.privateKey = "";
           body.CSR = "";
 
           instance.createUser(body, function(error, data, response) {

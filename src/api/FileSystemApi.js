@@ -105,9 +105,10 @@
      * Download file
      * Downloading file from current folder
      * @param {String} hash The file hash
+     * @param {String} cid The file version
      * @param {module:api/FileSystemApi~downloadFileCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.downloadFile = function(hash, callback) {
+    this.downloadFile = function(hash, cid, callback) {
       var postBody = null;
 
       // verify the required parameter 'hash' is set
@@ -115,9 +116,15 @@
         throw new Error("Missing the required parameter 'hash' when calling downloadFile");
       }
 
+      // verify the required parameter 'cid' is set
+      if (cid === undefined || cid === null) {
+        throw new Error("Missing the required parameter 'cid' when calling downloadFile");
+      }
+
 
       var pathParams = {
-        'hash': hash
+        'hash': hash,
+        'cid': cid
       };
       var queryParams = {
       };
@@ -134,7 +141,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/file/{hash}', 'GET',
+        '/file/{hash}/{cid}', 'GET',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

@@ -126,7 +126,7 @@ All URIs are relative to *http://localhost:8080/api/v1*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *Woden.FileSystemApi* | [**createFolder**](docs/FileSystemApi.md#createFolder) | **POST** /folder | Create folder
-*Woden.FileSystemApi* | [**downloadFile**](docs/FileSystemApi.md#downloadFile) | **GET** /file/{hash} | Download file
+*Woden.FileSystemApi* | [**downloadFile**](docs/FileSystemApi.md#downloadFile) | **GET** /file/{hash}/{cid} | Download file
 *Woden.FileSystemApi* | [**getFolder**](docs/FileSystemApi.md#getFolder) | **GET** /folder/{hash} | Get folder
 *Woden.FileSystemApi* | [**search**](docs/FileSystemApi.md#search) | **GET** /search/{name} | Search
 *Woden.FileSystemApi* | [**updateFile**](docs/FileSystemApi.md#updateFile) | **PUT** /file | Update file

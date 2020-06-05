@@ -61,8 +61,9 @@
           // TODO: uncomment, update parameter values for downloadFile call
           /*
           var hash = "hash_example";
+          var cid = "cid_example";
 
-          instance.downloadFile(hash, function(error, data, response) {
+          instance.downloadFile(hash, cid, function(error, data, response) {
             if (error) {
               done(error);
               return;

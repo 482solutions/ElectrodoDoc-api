@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost:8080/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createFolder**](FileSystemApi.md#createFolder) | **POST** /folder | Create folder
-[**downloadFile**](FileSystemApi.md#downloadFile) | **GET** /file/{hash} | Download file
+[**downloadFile**](FileSystemApi.md#downloadFile) | **GET** /file/{hash}/{cid} | Download file
 [**getFolder**](FileSystemApi.md#getFolder) | **GET** /folder/{hash} | Get folder
 [**search**](FileSystemApi.md#search) | **GET** /search/{name} | Search
 [**updateFile**](FileSystemApi.md#updateFile) | **PUT** /file | Update file
@@ -68,7 +68,7 @@ null (empty response body)
 
 <a name="downloadFile"></a>
 # **downloadFile**
-> downloadFile(hash)
+> downloadFile(hash, cid)
 
 Download file
 
@@ -89,6 +89,8 @@ var apiInstance = new Woden.FileSystemApi();
 
 var hash = "hash_example"; // String | The file hash
 
+var cid = "cid_example"; // String | The file version
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -97,7 +99,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.downloadFile(hash, callback);
+apiInstance.downloadFile(hash, cid, callback);
 ```
 
 ### Parameters
@@ -105,6 +107,7 @@ apiInstance.downloadFile(hash, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hash** | **String**| The file hash | 
+ **cid** | **String**| The file version | 
 
 ### Return type
 
