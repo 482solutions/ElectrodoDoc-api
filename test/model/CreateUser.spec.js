@@ -58,6 +58,12 @@
         // expect(instance.password).to.be(expectedValueLiteral);
       });
 
+      it('should have the property privateKey (base name: "privateKey")', function() {
+        // TODO: update the code to test the property privateKey
+        expect(instance).to.have.property('privateKey');
+        // expect(instance.privateKey).to.be(expectedValueLiteral);
+      });
+
       it('should have the property CSR (base name: "CSR")', function() {
         // TODO: update the code to test the property CSR
         expect(instance).to.have.property('CSR');
