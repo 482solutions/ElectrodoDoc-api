@@ -121,7 +121,7 @@ api.createFolder(body, callback);
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080/api/v1*
+All URIs are relative to *http://localhost:1823/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -132,6 +132,7 @@ Class | Method | HTTP request | Description
 *Woden.FileSystemApi* | [**updateFile**](docs/FileSystemApi.md#updateFile) | **PUT** /file | Update file
 *Woden.FileSystemApi* | [**uploadFile**](docs/FileSystemApi.md#uploadFile) | **POST** /file | Upload file
 *Woden.FileSystemApi* | [**versions**](docs/FileSystemApi.md#versions) | **GET** /versions/{hash} | Versions of file
+*Woden.PermissionsApi* | [**changePermissions**](docs/PermissionsApi.md#changePermissions) | **PUT** /permissions | Change permissions
 *Woden.UserApi* | [**changeUser**](docs/UserApi.md#changeUser) | **PUT** /user | Update user password
 *Woden.UserApi* | [**createUser**](docs/UserApi.md#createUser) | **POST** /user | Create user
 *Woden.UserApi* | [**login**](docs/UserApi.md#login) | **POST** /user/auth | Login user into the system
@@ -141,6 +142,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Woden.ChangePassword](docs/ChangePassword.md)
+ - [Woden.ChangePermissions](docs/ChangePermissions.md)
  - [Woden.CreateFolder](docs/CreateFolder.md)
  - [Woden.CreateUser](docs/CreateUser.md)
  - [Woden.Login](docs/Login.md)

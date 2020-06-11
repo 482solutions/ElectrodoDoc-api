@@ -46,7 +46,7 @@
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default http://localhost:8080/api/v1
+     * @default http://localhost:1823/api/v1
      */
     this.basePath = 'http://localhost:1823/api/v1'.replace(/\/+$/, '');
 
