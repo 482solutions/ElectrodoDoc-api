@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ChangePassword', 'model/CreateFolder', 'model/CreateUser', 'model/Login', 'api/FileSystemApi', 'api/UserApi'], factory);
+    define(['ApiClient', 'model/ChangePassword', 'model/ChangePermissions', 'model/CreateFolder', 'model/CreateUser', 'model/Login', 'api/FileSystemApi', 'api/PermissionsApi', 'api/UserApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/ChangePassword'), require('./model/CreateFolder'), require('./model/CreateUser'), require('./model/Login'), require('./api/FileSystemApi'), require('./api/UserApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/ChangePassword'), require('./model/ChangePermissions'), require('./model/CreateFolder'), require('./model/CreateUser'), require('./model/Login'), require('./api/FileSystemApi'), require('./api/PermissionsApi'), require('./api/UserApi'));
   }
-}(function(ApiClient, ChangePassword, CreateFolder, CreateUser, Login, FileSystemApi, UserApi) {
+}(function(ApiClient, ChangePassword, ChangePermissions, CreateFolder, CreateUser, Login, FileSystemApi, PermissionsApi, UserApi) {
   'use strict';
 
   /**
@@ -67,6 +67,11 @@
      */
     ChangePassword: ChangePassword,
     /**
+     * The ChangePermissions model constructor.
+     * @property {module:model/ChangePermissions}
+     */
+    ChangePermissions: ChangePermissions,
+    /**
      * The CreateFolder model constructor.
      * @property {module:model/CreateFolder}
      */
@@ -86,6 +91,11 @@
      * @property {module:api/FileSystemApi}
      */
     FileSystemApi: FileSystemApi,
+    /**
+     * The PermissionsApi service constructor.
+     * @property {module:api/PermissionsApi}
+     */
+    PermissionsApi: PermissionsApi,
     /**
      * The UserApi service constructor.
      * @property {module:api/UserApi}
