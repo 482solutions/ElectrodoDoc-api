@@ -37,7 +37,7 @@
    */
 
   /**
-   * Constructs a new PermissionsApi. 
+   * Constructs a new PermissionsApi.
    * @alias module:api/PermissionsApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -58,7 +58,7 @@
     /**
      * Change permissions
      * After change permissions target user get selected permittions for file or folder
-     * @param {module:model/ChangePermissions} body 
+     * @param {module:model/ChangePermissions} body
      * @param {module:api/PermissionsApi~changePermissionsCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.changePermissions = function(body, callback) {
