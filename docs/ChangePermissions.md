@@ -8,3 +8,16 @@ Name | Type | Description | Notes
 **permission** | **String** |  | [optional] 
 
 
+<a name="PermissionEnum"></a>
+## Enum: PermissionEnum
+
+
+* `owner` (value: `"owner"`)
+
+* `write` (value: `"write"`)
+
+* `read` (value: `"read"`)
+
+
+
+

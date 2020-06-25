@@ -58,7 +58,7 @@
       });
       describe('downloadFile', function() {
         it('should call downloadFile successfully', function(done) {
-          // TODO: uncomment, update parameter values for downloadFile call
+          // TODO: uncomment, update parameter values for downloadFile call and complete the assertions
           /*
           var hash = "hash_example";
           var cid = "cid_example";
@@ -68,6 +68,9 @@
               done(error);
               return;
             }
+            // TODO: update response assertions
+            expect(data).to.be.a(File);
+            // expect(data).to.be(null);
 
             done();
           });
@@ -102,6 +105,24 @@
           var name = "name_example";
 
           instance.search(name, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('tree', function() {
+        it('should call tree successfully', function(done) {
+          // TODO: uncomment tree call
+          /*
+
+          instance.tree(function(error, data, response) {
             if (error) {
               done(error);
               return;

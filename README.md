@@ -129,10 +129,12 @@ Class | Method | HTTP request | Description
 *Woden.FileSystemApi* | [**downloadFile**](docs/FileSystemApi.md#downloadFile) | **GET** /file/{hash}/{cid} | Download file
 *Woden.FileSystemApi* | [**getFolder**](docs/FileSystemApi.md#getFolder) | **GET** /folder/{hash} | Get folder
 *Woden.FileSystemApi* | [**search**](docs/FileSystemApi.md#search) | **GET** /search/{name} | Search
+*Woden.FileSystemApi* | [**tree**](docs/FileSystemApi.md#tree) | **GET** /tree | Get folders tree
 *Woden.FileSystemApi* | [**updateFile**](docs/FileSystemApi.md#updateFile) | **PUT** /file | Update file
 *Woden.FileSystemApi* | [**uploadFile**](docs/FileSystemApi.md#uploadFile) | **POST** /file | Upload file
 *Woden.FileSystemApi* | [**versions**](docs/FileSystemApi.md#versions) | **GET** /versions/{hash} | Versions of file
 *Woden.PermissionsApi* | [**changePermissions**](docs/PermissionsApi.md#changePermissions) | **PUT** /permissions | Change permissions
+*Woden.PermissionsApi* | [**revokePermissions**](docs/PermissionsApi.md#revokePermissions) | **DELETE** /permissions | Revoke permissions
 *Woden.UserApi* | [**changeUser**](docs/UserApi.md#changeUser) | **PUT** /user | Update user password
 *Woden.UserApi* | [**createUser**](docs/UserApi.md#createUser) | **POST** /user | Create user
 *Woden.UserApi* | [**login**](docs/UserApi.md#login) | **POST** /user/auth | Login user into the system
@@ -146,6 +148,7 @@ Class | Method | HTTP request | Description
  - [Woden.CreateFolder](docs/CreateFolder.md)
  - [Woden.CreateUser](docs/CreateUser.md)
  - [Woden.Login](docs/Login.md)
+ - [Woden.RevokePermissions](docs/RevokePermissions.md)
 
 
 ## Documentation for Authorization

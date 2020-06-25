@@ -42,9 +42,31 @@
           var body = new Woden.ChangePermissions();
           body.email = "";
           body.hash = "";
-          body.permission = "";
+          body.permission = "owner";
 
           instance.changePermissions(body, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('revokePermissions', function() {
+        it('should call revokePermissions successfully', function(done) {
+          // TODO: uncomment, update parameter values for revokePermissions call
+          /*
+          var body = new Woden.RevokePermissions();
+          body.email = "";
+          body.hash = "";
+          body.permission = "unwrite";
+
+          instance.revokePermissions(body, function(error, data, response) {
             if (error) {
               done(error);
               return;

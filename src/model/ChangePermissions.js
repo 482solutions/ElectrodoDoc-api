@@ -75,9 +75,35 @@
   exports.prototype.hash = undefined;
 
   /**
-   * @member {String} permission
+   * @member {module:model/ChangePermissions.PermissionEnum} permission
    */
   exports.prototype.permission = undefined;
+
+
+  /**
+   * Allowed values for the <code>permission</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.PermissionEnum = {
+    /**
+     * value: "owner"
+     * @const
+     */
+    owner: "owner",
+
+    /**
+     * value: "write"
+     * @const
+     */
+    write: "write",
+
+    /**
+     * value: "read"
+     * @const
+     */
+    read: "read"
+  };
 
   return exports;
 

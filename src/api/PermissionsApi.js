@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ChangePermissions'], factory);
+    define(['ApiClient', 'model/ChangePermissions', 'model/RevokePermissions'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/ChangePermissions'));
+    module.exports = factory(require('../ApiClient'), require('../model/ChangePermissions'), require('../model/RevokePermissions'));
   } else {
     // Browser globals (root is window)
     if (!root.Woden) {
       root.Woden = {};
     }
-    root.Woden.PermissionsApi = factory(root.Woden.ApiClient, root.Woden.ChangePermissions);
+    root.Woden.PermissionsApi = factory(root.Woden.ApiClient, root.Woden.ChangePermissions, root.Woden.RevokePermissions);
   }
-}(this, function(ApiClient, ChangePermissions) {
+}(this, function(ApiClient, ChangePermissions, RevokePermissions) {
   'use strict';
 
   /**
@@ -37,7 +37,7 @@
    */
 
   /**
-   * Constructs a new PermissionsApi.
+   * Constructs a new PermissionsApi. 
    * @alias module:api/PermissionsApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -57,8 +57,8 @@
 
     /**
      * Change permissions
-     * After change permissions target user get selected permittions for file or folder
-     * @param {module:model/ChangePermissions} body
+     * After change permissions target user get selected permissions for file or folder
+     * @param {module:model/ChangePermissions} body 
      * @param {module:api/PermissionsApi~changePermissionsCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.changePermissions = function(body, callback) {
@@ -88,6 +88,52 @@
 
       return this.apiClient.callApi(
         '/permissions', 'PUT',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the revokePermissions operation.
+     * @callback module:api/PermissionsApi~revokePermissionsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Revoke permissions
+     * After revoke permissions target user not get permissions for file or folder
+     * @param {module:model/RevokePermissions} body 
+     * @param {module:api/PermissionsApi~revokePermissionsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.revokePermissions = function(body, callback) {
+      var postBody = body;
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling revokePermissions");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Bearer'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/permissions', 'DELETE',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

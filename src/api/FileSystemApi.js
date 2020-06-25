@@ -97,7 +97,7 @@
      * Callback function to receive the result of the downloadFile operation.
      * @callback module:api/FileSystemApi~downloadFileCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {File} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -107,6 +107,7 @@
      * @param {String} hash The file hash
      * @param {String} cid The file version
      * @param {module:api/FileSystemApi~downloadFileCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link File}
      */
     this.downloadFile = function(hash, cid, callback) {
       var postBody = null;
@@ -137,8 +138,8 @@
 
       var authNames = ['Bearer'];
       var contentTypes = [];
-      var accepts = [];
-      var returnType = null;
+      var accepts = ['application/json', 'image/png', 'image/gif', 'image/jpeg', 'multipart/form-data', 'application/pdf'];
+      var returnType = File;
 
       return this.apiClient.callApi(
         '/file/{hash}/{cid}', 'GET',
@@ -236,6 +237,46 @@
 
       return this.apiClient.callApi(
         '/search/{name}', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the tree operation.
+     * @callback module:api/FileSystemApi~treeCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get folders tree
+     * Get tree of folders and shared folders of user
+     * @param {module:api/FileSystemApi~treeCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.tree = function(callback) {
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Bearer'];
+      var contentTypes = [];
+      var accepts = [];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/tree', 'GET',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

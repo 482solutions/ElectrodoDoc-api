@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**downloadFile**](FileSystemApi.md#downloadFile) | **GET** /file/{hash}/{cid} | Download file
 [**getFolder**](FileSystemApi.md#getFolder) | **GET** /folder/{hash} | Get folder
 [**search**](FileSystemApi.md#search) | **GET** /search/{name} | Search
+[**tree**](FileSystemApi.md#tree) | **GET** /tree | Get folders tree
 [**updateFile**](FileSystemApi.md#updateFile) | **PUT** /file | Update file
 [**uploadFile**](FileSystemApi.md#uploadFile) | **POST** /file | Upload file
 [**versions**](FileSystemApi.md#versions) | **GET** /versions/{hash} | Versions of file
@@ -68,7 +69,7 @@ null (empty response body)
 
 <a name="downloadFile"></a>
 # **downloadFile**
-> downloadFile(hash, cid)
+> File downloadFile(hash, cid)
 
 Download file
 
@@ -96,7 +97,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.downloadFile(hash, cid, callback);
@@ -111,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**File**
 
 ### Authorization
 
@@ -120,7 +121,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json, image/png, image/gif, image/jpeg, multipart/form-data, application/pdf
 
 <a name="getFolder"></a>
 # **getFolder**
@@ -214,6 +215,53 @@ apiInstance.search(name, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| The folder or file name | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="tree"></a>
+# **tree**
+> tree()
+
+Get folders tree
+
+Get tree of folders and shared folders of user
+
+### Example
+```javascript
+var Woden = require('woden');
+var defaultClient = Woden.ApiClient.instance;
+
+// Configure API key authorization: Bearer
+var Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+var apiInstance = new Woden.FileSystemApi();
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+apiInstance.tree(callback);
+```
+
+### Parameters
+This endpoint does not need any parameter.
 
 ### Return type
 
