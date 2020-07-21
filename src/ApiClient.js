@@ -62,9 +62,7 @@
      * @type {Array.<String>}
      * @default {}
      */
-    this.defaultHeaders = {
-      'Name': {type: 'string', 'in': 'header', name: 'X-Content-Type-Options'}
-    };
+    this.defaultHeaders = {};
 
     /**
      * The default HTTP timeout for all API calls.
