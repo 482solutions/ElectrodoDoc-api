@@ -139,6 +139,9 @@ Class | Method | HTTP request | Description
 *Woden.UserApi* | [**createUser**](docs/UserApi.md#createUser) | **POST** /user | Create user
 *Woden.UserApi* | [**login**](docs/UserApi.md#login) | **POST** /user/auth | Login user into the system
 *Woden.UserApi* | [**logout**](docs/UserApi.md#logout) | **DELETE** /user/logout | Logout user from the system
+*Woden.VotingApi* | [**createVoting**](docs/VotingApi.md#createVoting) | **POST** /voting | Create voting
+*Woden.VotingApi* | [**getVoting**](docs/VotingApi.md#getVoting) | **GET** /voting | Get voting list
+*Woden.VotingApi* | [**updateVoting**](docs/VotingApi.md#updateVoting) | **PUT** /voting | User vote
 
 
 ## Documentation for Models
@@ -149,6 +152,8 @@ Class | Method | HTTP request | Description
  - [Woden.CreateUser](docs/CreateUser.md)
  - [Woden.Login](docs/Login.md)
  - [Woden.RevokePermissions](docs/RevokePermissions.md)
+ - [Woden.Vote](docs/Vote.md)
+ - [Woden.Voting](docs/Voting.md)
 
 
 ## Documentation for Authorization
