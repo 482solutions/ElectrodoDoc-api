@@ -32,7 +32,7 @@
   describe('(package)', function() {
     describe('UploadFile', function() {
       beforeEach(function() {
-        instance = new Woden.UploadFile();
+//         instance = new Woden.UploadFile();
       });
 
       it('should create an instance of UploadFile', function() {
