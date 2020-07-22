@@ -56,8 +56,6 @@
       obj = obj || new exports();
       if (data.hasOwnProperty('hash'))
         obj.hash = ApiClient.convertToType(data['hash'], 'String');
-      if (data.hasOwnProperty('cid'))
-        obj.cid = ApiClient.convertToType(data['cid'], 'String');
       if (data.hasOwnProperty('dueDate'))
         obj.dueDate = ApiClient.convertToType(data['dueDate'], 'String');
       if (data.hasOwnProperty('variants'))
@@ -74,11 +72,6 @@
    * @member {String} hash
    */
   exports.prototype.hash = undefined;
-
-  /**
-   * @member {String} cid
-   */
-  exports.prototype.cid = undefined;
 
   /**
    * @member {String} dueDate
