@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ChangePassword', 'model/ChangePermissions', 'model/CreateFolder', 'model/CreateUser', 'model/Login', 'model/RevokePermissions', 'api/FileSystemApi', 'api/PermissionsApi', 'api/UserApi'], factory);
+    define(['ApiClient', 'model/ChangePassword', 'model/ChangePermissions', 'model/CreateFolder', 'model/CreateUser', 'model/Login', 'model/RevokePermissions', 'model/Vote', 'model/Voting', 'api/FileSystemApi', 'api/PermissionsApi', 'api/UserApi', 'api/VotingApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/ChangePassword'), require('./model/ChangePermissions'), require('./model/CreateFolder'), require('./model/CreateUser'), require('./model/Login'), require('./model/RevokePermissions'), require('./api/FileSystemApi'), require('./api/PermissionsApi'), require('./api/UserApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/ChangePassword'), require('./model/ChangePermissions'), require('./model/CreateFolder'), require('./model/CreateUser'), require('./model/Login'), require('./model/RevokePermissions'), require('./model/Vote'), require('./model/Voting'), require('./api/FileSystemApi'), require('./api/PermissionsApi'), require('./api/UserApi'), require('./api/VotingApi'));
   }
-}(function(ApiClient, ChangePassword, ChangePermissions, CreateFolder, CreateUser, Login, RevokePermissions, FileSystemApi, PermissionsApi, UserApi) {
+}(function(ApiClient, ChangePassword, ChangePermissions, CreateFolder, CreateUser, Login, RevokePermissions, Vote, Voting, FileSystemApi, PermissionsApi, UserApi, VotingApi) {
   'use strict';
 
   /**
@@ -92,6 +92,16 @@
      */
     RevokePermissions: RevokePermissions,
     /**
+     * The Vote model constructor.
+     * @property {module:model/Vote}
+     */
+    Vote: Vote,
+    /**
+     * The Voting model constructor.
+     * @property {module:model/Voting}
+     */
+    Voting: Voting,
+    /**
      * The FileSystemApi service constructor.
      * @property {module:api/FileSystemApi}
      */
@@ -105,7 +115,12 @@
      * The UserApi service constructor.
      * @property {module:api/UserApi}
      */
-    UserApi: UserApi
+    UserApi: UserApi,
+    /**
+     * The VotingApi service constructor.
+     * @property {module:api/VotingApi}
+     */
+    VotingApi: VotingApi
   };
 
   return exports;
