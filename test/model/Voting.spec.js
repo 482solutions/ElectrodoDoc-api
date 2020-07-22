@@ -70,10 +70,10 @@
         // expect(instance.excludedUsers).to.be(expectedValueLiteral);
       });
 
-      it('should have the property decription (base name: "decription")', function() {
-        // TODO: update the code to test the property decription
-        expect(instance).to.have.property('decription');
-        // expect(instance.decription).to.be(expectedValueLiteral);
+      it('should have the property description (base name: "description")', function() {
+        // TODO: update the code to test the property description
+        expect(instance).to.have.property('description');
+        // expect(instance.description).to.be(expectedValueLiteral);
       });
 
     });
