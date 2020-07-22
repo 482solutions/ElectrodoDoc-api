@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **dueDate** | **String** |  | [optional] 
 **variants** | **String** |  | [optional] 
 **excludedUsers** | **String** |  | [optional] 
-**decription** | **String** |  | [optional] 
+**description** | **String** |  | [optional] 
 
 

@@ -45,7 +45,7 @@
           body.dueDate = "";
           body.variants = "";
           body.excludedUsers = "";
-          body.decription = "";
+          body.description = "";
 
           instance.createVoting(body, function(error, data, response) {
             if (error) {

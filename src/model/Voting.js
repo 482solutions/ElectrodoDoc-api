@@ -64,8 +64,8 @@
         obj.variants = ApiClient.convertToType(data['variants'], 'String');
       if (data.hasOwnProperty('excludedUsers'))
         obj.excludedUsers = ApiClient.convertToType(data['excludedUsers'], 'String');
-      if (data.hasOwnProperty('decription'))
-        obj.decription = ApiClient.convertToType(data['decription'], 'String');
+      if (data.hasOwnProperty('description'))
+        obj.description = ApiClient.convertToType(data['description'], 'String');
     }
     return obj;
   }
@@ -96,9 +96,9 @@
   exports.prototype.excludedUsers = undefined;
 
   /**
-   * @member {String} decription
+   * @member {String} description
    */
-  exports.prototype.decription = undefined;
+  exports.prototype.description = undefined;
 
   return exports;
 
