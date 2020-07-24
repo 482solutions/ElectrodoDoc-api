@@ -54,11 +54,18 @@
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
+      if (data.hasOwnProperty('hash'))
+        obj.hash = ApiClient.convertToType(data['hash'], 'String');
       if (data.hasOwnProperty('variant'))
         obj.variant = ApiClient.convertToType(data['variant'], 'String');
     }
     return obj;
   }
+
+  /**
+   * @member {String} hash
+   */
+  exports.prototype.hash = undefined;
 
   /**
    * @member {String} variant

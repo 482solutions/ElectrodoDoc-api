@@ -56,14 +56,12 @@
       obj = obj || new exports();
       if (data.hasOwnProperty('hash'))
         obj.hash = ApiClient.convertToType(data['hash'], 'String');
-      if (data.hasOwnProperty('cid'))
-        obj.cid = ApiClient.convertToType(data['cid'], 'String');
       if (data.hasOwnProperty('dueDate'))
         obj.dueDate = ApiClient.convertToType(data['dueDate'], 'String');
       if (data.hasOwnProperty('variants'))
-        obj.variants = ApiClient.convertToType(data['variants'], 'String');
+        obj.variants = ApiClient.convertToType(data['variants'], ['String']);
       if (data.hasOwnProperty('excludedUsers'))
-        obj.excludedUsers = ApiClient.convertToType(data['excludedUsers'], 'String');
+        obj.excludedUsers = ApiClient.convertToType(data['excludedUsers'], ['String']);
       if (data.hasOwnProperty('description'))
         obj.description = ApiClient.convertToType(data['description'], 'String');
     }
@@ -76,22 +74,17 @@
   exports.prototype.hash = undefined;
 
   /**
-   * @member {String} cid
-   */
-  exports.prototype.cid = undefined;
-
-  /**
    * @member {String} dueDate
    */
   exports.prototype.dueDate = undefined;
 
   /**
-   * @member {String} variants
+   * @member {Array.<String>} variants
    */
   exports.prototype.variants = undefined;
 
   /**
-   * @member {String} excludedUsers
+   * @member {Array.<String>} excludedUsers
    */
   exports.prototype.excludedUsers = undefined;
 

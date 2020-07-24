@@ -46,12 +46,6 @@
         // expect(instance.hash).to.be(expectedValueLiteral);
       });
 
-      it('should have the property cid (base name: "cid")', function() {
-        // TODO: update the code to test the property cid
-        expect(instance).to.have.property('cid');
-        // expect(instance.cid).to.be(expectedValueLiteral);
-      });
-
       it('should have the property dueDate (base name: "dueDate")', function() {
         // TODO: update the code to test the property dueDate
         expect(instance).to.have.property('dueDate');
