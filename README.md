@@ -1,4 +1,4 @@
-# woden
+# ElectrodoDoc
 
 Woden - JavaScript client for woden
 Specification for Woden REST API
